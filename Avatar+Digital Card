@@ -1,0 +1,26 @@
+#1. Setting up variables(Storage boxes)
+name = "Rohan"
+favoriteColor = "Navy Blue"
+superpower= "Time stop"
+sport= "Football"
+dreamCollege = "UC Berkeley/UCLA"
+favoriteFood = "pasta"
+birthyear ="2009"
+currentYear ="2026"
+age=int(currentYear)-int(birthyear)
+# Avatar Customizer
+codeName = input("Enter your name: ")
+faction = input("Choose your faction (cyber/Bio/Steam): ")
+level =int(input("Enter starting power level(1-10): "))
+powerlevel=int(level)
+startingLevel=powerlevel*5
+stealthRating=100+powerlevel
+shield=100+powerlevel
+totalPoints=100
+strength=int(input("Strength points: "))
+remaning=totalPoints-strength
+print("Operator: "+codeName)
+print("Faction: "+faction)
+print("Power: "+str(powerlevel))
+print("Stats: Stealth: "+str(stealthRating)+"Shield: "+str(shield))
+print("You have {remaning} points left.")
