@@ -1,0 +1,24 @@
+#LAB Week 2
+print("----------")
+print("~The Time Travel Glitch")
+print("----------")
+#1. Gathering user data
+heroName = input("Enter the protagonist's name: ").strip().capitalize()
+place=input("Enter a place (ex. space station, castle): ").strip().lower()
+item=input("Name a modern item (ex: phone, toaster): ").strip().lower()
+
+#2 Gathering a number and converting it
+travelYears = int(input("How many years into the future do you want to travel? "))
+
+#3. Dynamic calculation
+arrivalYear=2026+travelYears
+
+#4. Printing the final story using triple quotes & F strings
+story=f"""
+TIME JUMP SUCCESSFUL
+The year is {arrivalYear} materialized right in the middle of a busy {place}, completely disoriented.
+Looking around,{heroName} local inhabitants were staring in utter disbelief.
+Holding up their trusty {item}, the locals began bowing down to it, mistaking it for an ancient, magical artifact.
+"This trip was supposed to take 5 years, not {travelYears} years!" {heroName} whispered frantically.
+"""
+print(story)
