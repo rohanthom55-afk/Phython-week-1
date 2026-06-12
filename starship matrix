@@ -1,0 +1,38 @@
+print("----------------------------------------------")
+print(" ~ The Starship Martix")
+print("----------------------------------------------")
+
+#1. collect data and validate alphabetical inputs
+pilotName =input("Enter pilot Last Name: ").strip().capitalize()
+isPilotValid=pilotName.isalpha()
+
+#2. Collect and inspect numerical inputs before collcting
+lightYears = input("Enter distance to jump in (light years): ").strip()
+isDistanceNumerical = lightYears.isdigit()
+
+print("\n----Pre-Flight Diagnostics----")
+print(f">> Pilot Signature Valid? {isPilotValid}")
+print(f">> Coordinates Numeric? {isDistanceNumerical}")
+
+#3. Type Casting  using a multiplier
+safeDistance =int(lightYears)*int(isDistanceNumerical)
+
+#4. Math MAtrix
+fuelConsumed=(lightYears)*2
+integrityLost=(lightYears)*3
+
+#5. Output
+shipLog= f"""
+SYSTEM LOG: HYPERSPACE INITIATION
+COMMANDER: Capt. {pilotName} DESTINATION: Sector-{safeDistance * 7}WARP FACTOR: {safeDistance} LY
+DATA ANALYSIS: The hyperdrive consumed {fuelConsumed} gigawatts of plasma fuel to pierce the space-time fabric.
+Upon arrival, Hull Integrity dropped by {integrityLost} %
+
+CRITICAL FAILURE RISK: {not isDistanceNumerical or not isPilotValid}
+"""
+print(shipLog)
+if lightYears.isdigit():
+    lightYears=int(lightYears)
+else:
+    print("Invalid Coordinate")
+    lightYears=0
