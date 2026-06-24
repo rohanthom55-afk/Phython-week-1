@@ -1,0 +1,110 @@
+print("--------------------")
+print("OUTBREAK: Can you survive the night?")
+print("--------------------")
+survivalPoints=100
+hasRifle="False"
+hasAmmo="False"
+infection =0.0
+inventory="nothing"
+print("Situation: You are trapped inside of a store, but you hear the windows shatter!")
+print("A) Sprint to the back room and lock the door")
+print("B) Raid the pharmacy and save a Medical Kit ")
+print("C) Grab a crowbar and hide")
+
+action1=input("Choose your survival move(A/B/C) ").strip().upper()
+
+if action1=="A":
+    print("You safely hid inside the room")
+    survivalPoints=survivalPoints+10
+    inventory="nothing"
+elif action1=="B":
+    print("You scramble behind the counter and put the kit in your backpack")
+    survivalPoints=survivalPoints+15
+    inventory="med-kit"
+elif action1=="C":
+    print("You leap behind a counter with the crowbar and anticipate the worst... ")
+    survivalPoints=survivalPoints+15
+    inventory="crowbar"
+else:
+    print("You froze in fear and didn't move..")
+    survivalPoints=survivalPoints-5
+print("Situation 2: a Zombie blocks the exit door and lunges at you!")
+print("A) Try to stand your ground and fight it head on... ")
+print("B) Try to evade it and jump out the window. ")
+action2=input("Choose your survival move (A/B) ").strip().upper()
+
+print("Calculating survival probability... ")
+
+if action2=="A":
+    if inventory=="crowbar":
+        print("You swing your crowbar and kill the zombie! ")
+    elif inventory=="medkit":
+        print("You try to punch the zombie but it bites you, luckily you have your med-kit... ")
+        survivalPoints=survivalPoints-20
+    else:
+
+        print("You tried to fight with your bare hands, but game over...")
+
+        survivalPoints=0
+
+ 
+
+else:
+
+    print("Your hesitation was fatal, and the zombie got you...")
+
+    survivalPoints=0
+if survivalPoints>0:
+    print(f"Congrats you survived! Remaning health:{survivalPoints} ")
+else:
+    print("Status: Deceased...Better Luck next time! ")
+    
+print("Situation 3: You are inside of an armory and have to decide what to grab...")
+print("A) Grab just the rifle, but leave the heavy ammo crates")
+print("B) Grab ONLY the ammo and look for a weapon later ")
+print("C) Grab both the Rifle and the Ammo, but this slows you down ")
+action3=input("Choose your survival move (A/B/C) ").strip().upper()
+
+if action3=="A":
+    print("Weapon aquired! But you have no ammo...")
+    hasRifle="True"
+    hasAmmo="False"
+elif action3=="B":
+    print("Ammo acquired! but you have no weapon.")
+    hasRifle="False"
+    hasAmmo="True"
+elif action3=="C":
+    print("You have acquired both, but your speed has slowed down.")
+    hasRifle="True"
+    hasAmmo="True"
+else:
+    print("You didn't grab anything dumb dumb.")
+    
+print("An infected human drops from the vents...")
+
+print("A) Open fire immediately... ")
+
+print("B) Sprint away... ")
+
+action4=input("Choose your survival move (A/B) ").strip().upper()
+if action4=="A":
+    if hasRifle and hasAmmo:
+        print("Flawless victory! You survived.")
+    elif hasRifle and not hasAmmo:
+        print("The creature slashed your shoulder!")
+        survivalPoints=survivalPoints-50
+    elif hasAmmo and not hasRifle:
+        print("The Creature attacks you but you hit it with a crate of ammo. ")
+        survivalPoints=survivalPoints-20
+    else:
+        print("You have no weapon idiot.")
+        survivalPoints=0
+elif action4=="B":
+    if action3=="C":
+        print("You try to run but you are too slow")
+        survivalPoints=survivalPoints-30
+    else:
+        print("You merely escape, good job. ")
+else:
+    print("You froze in fear and stood there like a bum.")
+    survivalPoints=0
