@@ -1,0 +1,57 @@
+print("--------------------------")
+print("ALERT! Pre-Dive Registration required.")
+print("--------------------------")
+pilotName=input("Enter Pilot's Last Name: ").strip().capitalize()
+BatteryPercentage=int(input("Enter Starting Battery Percentage (1-100): "))
+if BatteryPercentage>100:
+    print("You have too much battery your ship exploded")
+elif BatteryPercentage<1:
+    print("You did not have any battery buddy")
+#2"Dive depth and energy calculations"
+travelDepth=int(input("Enter how many Kilometers Deep you want to dive: "))
+hullPressure=travelDepth*150
+remaningBattery=BatteryPercentage-travelDepth^2
+#3 Trench Encounter
+print("DANGER!! There is a Kraken blocking the trench entrance!")
+print("A) Fire up the subs interbalistic EMP blast and hope for the best")
+print("B) Cut off all the lights and drift past")
+print("C) Fire a decoy flare into the abyss where another Kraken might be hiding")
+action1=input("Which decision will you make to survive? (A/B/C): ")
+#4 compound and Nested Outcome matrix
+if action1=="A":
+    if remaningBattery>40:
+        print("You successfully launched your interbalistic EMP, the Kraken left cus he ain't paid enough for ts")
+        print("Congrats you survived!")
+    elif remaningBattery<40:
+        print("U don't got enough battery buddy, the Kraken launched u into outerspace.")
+        print("Yeah, u ain't survivng ts better luck next time")
+    else:
+        print("U aint even select anything dumb dumb")
+elif action1=="B":
+    if travelDepth>5:
+        print("Yeah the Kraken was actually a big Teddy Bear and you drifted past")
+        print("Congrats you survived.")
+    elif travelDepth<5:
+        print("U didn't dive far enough and ended up right infront of the Kraken.")
+        print("You ain't survive that buddy do better next time")
+    else:
+        print("You didnt even select anything dumb dumb")
+else:
+    print("The flare attracted the mama Kraken, who yelled at Bob and now your path to the trench was open")
+    print("You survived but the yelling pushed you back  2 kilometers")
+    travelDepth=travelDepth+2
+    hullPressure=travelDepth*150
+#5 Mission Log Output
+shipLog=print(f"""
+--------------------------
+System Log:{pilotName}
+-------------------------
+Hull Pressure={hullPressure}
+Travel Depth={travelDepth}
+This was a hard mission but you did succeed
+some of you might have taken the sad way out and just drifted past the mighty Kraken,
+Captain Jack Sparrow my very good friend would be dissapointed
+For those of you who took the risk by fighting the mighty Kraken
+you now have a story to tell for generations,
+and for all who survived this mission, just know WE all congratulate you.
+""")
